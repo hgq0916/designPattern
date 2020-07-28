@@ -38,4 +38,22 @@ public class Sorter {
     arr[j] = temp;
   }
 
+  public static <T> void sort(T[] arr,Comparator<T> comparator){
+    for(int i=0;i<arr.length;i++){
+      int min = i;
+      for(int j=i;j<arr.length;j++){
+        if(comparator.compareTo(arr[min],arr[j])>0) min = j;
+      }
+      if(min !=i){
+        swap(arr,min,i);
+      }
+    }
+  }
+
+  private static <T> void swap(T[] arr, int i, int j) {
+    T temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
 }
