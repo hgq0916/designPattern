@@ -14,14 +14,25 @@ public class SortTest {
     Sorter.sort(arr);
     System.out.println(Arrays.toString(arr));*/
 
-    Dog arr[] = new Dog[]{new Dog(3),new Dog(5),new Dog(1)};
+    /*Dog arr[] = new Dog[]{new Dog(3),new Dog(5),new Dog(1)};
     System.out.println(Arrays.toString(arr));
     Sorter.sort(arr,(d1,d2)->{
       if(d1.getFood()<d2.getFood()) return 1;
       else if(d1.getFood()>d2.getFood()) return -1;
       else return 0;
     });
+    System.out.println(Arrays.toString(arr));*/
+
+    /*Cat arr[] = new Cat[]{new Cat(3,1),new Cat(5,5),new Cat(1,3)};
     System.out.println(Arrays.toString(arr));
+    Sorter.sort(arr,new CatHeightComparator());
+    System.out.println(Arrays.toString(arr));*/
+
+    Cat arr[] = new Cat[]{new Cat(3,1),new Cat(5,5),new Cat(1,3)};
+    System.out.println(Arrays.toString(arr));
+    Sorter.sort(arr,new CatWeightComparator());
+    System.out.println(Arrays.toString(arr));
+
   }
 
 }
