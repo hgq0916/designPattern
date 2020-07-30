@@ -69,38 +69,43 @@ class Message {
 
 interface Filter {
 
-  void doFilter(Message msg);
+  boolean doFilter(Message msg);
 
 }
 
 class ScriptFilter implements Filter {
 
   @Override
-  public void doFilter(Message msg) {
+  public boolean doFilter(Message msg) {
     String str = msg.getMsg();
     str = str.replace("<", "[").replace(">", "]");
     msg.setMsg(str);
+    return false;
   }
 }
 
 class SensitiveFitler implements Filter {
 
   @Override
-  public void doFilter(Message msg) {
+  public boolean doFilter(Message msg) {
     String str = msg.getMsg();
     //敏感词替换
     str = str.replace("966","955");
     msg.setMsg(str);
+
+    return true;
   }
 }
 
 class UrlFilter implements Filter{
 
   @Override
-  public void doFilter(Message msg) {
+  public boolean doFilter(Message msg) {
     String str = msg.getMsg();
     str = str.replace("mashibing.com","http://mashibing.com");
     msg.setMsg(str);
+
+    return true;
   }
 }
 
@@ -112,10 +117,13 @@ class FilterChain implements Filter{
     return this;
   }
 
-  public void doFilter(Message message){
-    filterChain.forEach(
-        f -> f.doFilter(message)
-    );
+  public boolean doFilter(Message message){
+
+    for(Filter filter:filterChain){
+      if(!filter.doFilter(message)) return false;
+    }
+
+    return true;
   }
 
 }
