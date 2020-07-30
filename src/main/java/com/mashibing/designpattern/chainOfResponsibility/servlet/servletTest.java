@@ -16,6 +16,8 @@ public class servletTest {
     request.setContent("大家好，:),<script>欢迎来到mashibing.com,大家一起交流，工作966");
     Response response = new Response();
     filterChain.doFilter(request,response);
+    System.out.println(request.getContent());
+    System.out.println(response.getContent());
   }
 
 }

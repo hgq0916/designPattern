@@ -21,8 +21,9 @@ public class Response {
   public void write(String str){
     if(content == null){
       content = str;
+    }else {
+      content += str;
     }
-    content += str;
   }
 
 }
