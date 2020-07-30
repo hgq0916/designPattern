@@ -9,7 +9,7 @@ import java.util.List;
  * @Description: TODO
  * @date 2020/7/30 16:55
  */
-public class FilterChain{
+public class FilterChain implements Filter{
 
   List<Filter> filters = new ArrayList<>();
 
@@ -20,19 +20,17 @@ public class FilterChain{
     return this;
   }
 
-  public boolean doFilter(Request request, Response response) {
+  public boolean doFilter(Request request, Response response,FilterChain filterChain) {
 
     System.out.println("FilterChain doFilter pre handle,step="+step);
 
     //找到下一个过滤器
     if(step<filters.size()){
       Filter filter = filters.get(step++);
-      filter.doFilter(request,response,this);
+      return filter.doFilter(request,response,filterChain);
     }
 
-    System.out.println("FilterChain doFilter post handle,step="+step);
-
-    return true;
+    return false;
   }
 
 }

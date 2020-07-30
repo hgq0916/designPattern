@@ -18,7 +18,7 @@ public class UrlFilter implements Filter{
     content = content.replace("mashibing.com","http://mashibing.com");
     request.setContent(content);
 
-    filterChain.doFilter(request,response);
+    filterChain.doFilter(request,response,filterChain);
 
     response.write(" [UrlFilter] ");
 

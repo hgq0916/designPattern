@@ -17,7 +17,7 @@ public class FaceFilter implements Filter {
     content = content.replace(":)","^V^");
     request.setContent(content);
 
-    filterChain.doFilter(request,response);
+    filterChain.doFilter(request,response,filterChain);
 
     response.write(" [FaceFilter] ");
 

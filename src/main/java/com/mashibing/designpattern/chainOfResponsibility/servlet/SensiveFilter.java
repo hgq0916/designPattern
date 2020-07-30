@@ -17,7 +17,7 @@ public class SensiveFilter implements Filter {
     content = content.replace("966","955");
     request.setContent(content);
 
-    filterChain.doFilter(request,response);
+    filterChain.doFilter(request,response,filterChain);
 
     response.write(" [SensiveFilter] ");
 
