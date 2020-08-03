@@ -14,6 +14,7 @@ public class ProxyTest {
 
   public static void main(String[] args) {
     //Moveable tank = new TimeProxy(new LogProxy(new Tank()));
+    Tank tank = new Tank();
     Moveable moveable = (Moveable) Proxy.newProxyInstance(Moveable.class.getClassLoader(),
         new Class[]{Moveable.class}, new InvocationHandler() {
           @Override
@@ -21,7 +22,7 @@ public class ProxyTest {
             System.out.println("moveable call begin");
             long time1 = System.currentTimeMillis();
 
-            Object o = method.invoke(new Tank(), args);
+            Object o = method.invoke(tank, args);
 
             long time2 = System.currentTimeMillis();
             System.out.println("时间耗时："+(time2-time1));
