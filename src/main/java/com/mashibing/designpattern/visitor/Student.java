@@ -8,19 +8,24 @@ package com.mashibing.designpattern.visitor;
  */
 public class Student implements Visitor{
 
-  @Override
-  public double visitCpu(ComputePart cpu) {
-    return cpu.getPrice()*0.7;
+  private double totalPrice =0;
+
+  public double getTotalPrice() {
+    return totalPrice;
   }
 
   @Override
-  public double visitMemory(ComputePart memory) {
-    return memory.getPrice()*0.7;
+  public void visitCpu(CPU cpu) {
+    totalPrice+=cpu.getPrice()*0.8;
   }
 
   @Override
-  public double visitMainBoard(ComputePart mainBoard) {
-    return mainBoard.getPrice()*0.7;
+  public void visitMemory(Memory memory) {
+    totalPrice+=memory.getPrice()*0.8;
   }
 
+  @Override
+  public void visitMainBoard(MainBoard mainBoard) {
+    totalPrice+=mainBoard.getPrice()*0.8;
+  }
 }

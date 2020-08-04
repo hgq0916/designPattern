@@ -9,38 +9,17 @@ package com.mashibing.designpattern.visitor;
 public class Compute {
 
   /**
-   * 学生购买打7折，企业购买打6折
+   * 获取组装电脑的价格，学生购买打7折，企业购买打6折
    */
 
-  ComputePart cpu = new ComputePart("cpu",900.0);
-  ComputePart memory = new ComputePart("memory",300.0);
-  ComputePart mainBoard = new ComputePart("mainBoard",600.0);
+  CPU cpu = new CPU();
+  Memory memory = new Memory();
+  MainBoard mainBoard = new MainBoard();
 
-  public double getCpuPrice(Visitor visitor){
-    return visitor.visitCpu(cpu);
-  }
-
-  public double getMemoryPrice(Visitor visitor){
-    return visitor.visitMemory(memory);
-  }
-
-  public double getMainBoardPrice(Visitor visitor){
-    return visitor.visitMainBoard(mainBoard);
-  }
-
-}
-
-class ComputePart {
-  private double price;
-  private String name;
-
-  public ComputePart(String name, double price) {
-    this.name = name;
-    this.price = price;
-  }
-
-  public double getPrice(){
-    return price;
+  public void accept(Visitor visitor){
+    visitor.visitCpu(cpu);
+    visitor.visitMemory(memory);
+    visitor.visitMainBoard(mainBoard);
   }
 
 }

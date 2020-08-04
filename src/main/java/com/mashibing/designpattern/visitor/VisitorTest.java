@@ -13,13 +13,11 @@ public class VisitorTest {
     Student stu = new Student();
     Enterprise enterprise = new Enterprise();
 
-    System.out.println(compute.getCpuPrice(stu));
-    System.out.println(compute.getMainBoardPrice(stu));
-    System.out.println(compute.getMemoryPrice(stu));
+    compute.accept(stu);
+    compute.accept(enterprise);
 
-    System.out.println(compute.getCpuPrice(enterprise));
-    System.out.println(compute.getMainBoardPrice(enterprise));
-    System.out.println(compute.getMemoryPrice(enterprise));
+    System.out.println(stu.getTotalPrice());
+    System.out.println(enterprise.getTotalPrice());
 
   }
 

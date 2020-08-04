@@ -8,10 +8,10 @@ package com.mashibing.designpattern.visitor;
  */
 public interface Visitor {
 
-  double visitCpu(ComputePart cpu);
+  void visitCpu(CPU cpu);
 
-  double visitMemory(ComputePart memory);
+  void visitMemory(Memory memory);
 
-  double visitMainBoard(ComputePart mainBoard);
+  void visitMainBoard(MainBoard mainBoard);
 
 }
