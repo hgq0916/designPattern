@@ -25,7 +25,7 @@ public class Compute {
   }
 
   public double getMainBoardPrice(Visitor visitor){
-    return visitor.visitCpu(mainBoard);
+    return visitor.visitMainBoard(mainBoard);
   }
 
 }
