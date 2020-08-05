@@ -9,7 +9,7 @@ package com.mashibing.designpattern.command;
 public class CommandTest {
 
   public static void main(String[] args) {
-    Content content = new Content();
+    Content content = new Content("hello,command chain");
     //Command command = new CopyCommand(content);
     //Command command = new DeleteCommand(content);
     Command command = new InsertCommand(content);

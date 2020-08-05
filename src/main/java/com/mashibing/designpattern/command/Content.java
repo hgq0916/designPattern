@@ -8,6 +8,14 @@ package com.mashibing.designpattern.command;
  */
 public class Content {
 
-  String msg = "我们实现一个实例程序，可以列出文件和文件夹的信息";
+  String msg;
+
+  public Content(String msg){
+    this.msg = msg;
+  }
+
+  public String getMsg() {
+    return msg;
+  }
 
 }
